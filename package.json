@@ -1,0 +1,15 @@
+{
+  "name": "test_actions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Zeng-qh/Test_actions.git",
+  "author": "都一样 <976272457@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "dependencies": {
+    "vuepress": "^1.3.1"
+  }
+}
