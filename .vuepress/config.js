@@ -1,7 +1,7 @@
 module.exports=({
     base:"/Test_actions/",
     theme: 'reco',
-  themeConfig: {
+     themeConfig: {
      // 博客配置
     blogConfig: {
       category: {
