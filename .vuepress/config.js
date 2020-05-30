@@ -1,3 +1,3 @@
-module.exports={
-    base:'/Test_actions/'
-}
+module.exports=({
+    base:"/Test_actions/"
+})
