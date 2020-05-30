@@ -1,3 +1,3 @@
 module.exports={
-    baseURL:'/gh-pages/'
+    base:'/Test_actions/'
 }
