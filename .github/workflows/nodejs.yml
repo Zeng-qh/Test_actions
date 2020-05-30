@@ -8,30 +8,24 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-     matrix:
-       node-version: [10.x, 12.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-    # uses: actions/setup-node@v1
+    - name: Checkout
+      uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
       with:
-       node-version: ${{ matrix.node-version }}
-       persist-credentials: false
-    - name: Build
-      run: yarn && yarn run build
-    - name: deploy
-      uses: JamesIves/github-pages-deploy-action@master
+        persist-credentials: false
+    - name: Install and Build
+      run: |
+        npm install
+        npm run-script build
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: bulid
+        FOLDER: build
     #- name: Build
     #  uses: JamesIves/github-pages-deploy-action@master
     #env:
