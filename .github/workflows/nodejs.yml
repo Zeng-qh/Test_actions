@@ -23,6 +23,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn  # 相当于npm install
-    - run: yarn run build --if-present
+    env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: build
+        BUILD_SCRIPT: yarn && yarn run build
+        #- run: yarn  # 相当于npm install
+        #- run: yarn run build --if-present
     # - run: npm test
